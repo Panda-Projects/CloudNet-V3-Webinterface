@@ -1,0 +1,13 @@
+{
+  "notFoundTask": "Der Task konnte nicht gefunden werden",
+  "errormodal": "Fehler",
+  "closemodal": "Schließen",
+  "successmodal": "Erfolgreich",
+  "createService": "Der Service wurde erfolgreich erstellt",
+  "startService": "Der Service wurde erfolgreich gestartet",
+  "stopService": "Der Service wurde erfolgreich gestoppt",
+  "taskCreated": "Der Task wurde erfolgreich erstellt",
+  "taskDelete": "Der Task wurde erfolgreich gelöscht",
+  "loginFailed": "Überpürfen Sie ihren Username und ihr Passwort",
+  "updatePermissionGroup": "Gruppen Einstellung Erfolgreich übernommen"
+}
