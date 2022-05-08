@@ -1,0 +1,23 @@
+{
+  "name": "panda-studios/cloudnet-v3-webinterface",
+  "description": "a webinterface for cloudnet3 by panda-studios",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Fabian Evers",
+      "email": "fabian.evers@panda-studios.eu"
+    }
+  ],
+  "require": {
+    "pecee/simple-router": "4.3.7.2",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\Helper\\": "app/helper/",
+      "App\\Http\\Controller\\": "app/http/controller/",
+      "App\\Http\\Middleware\\": "app/http/middleware/"
+    }
+  }
+}
