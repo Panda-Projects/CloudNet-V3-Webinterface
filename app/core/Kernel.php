@@ -5,7 +5,6 @@ use Pecee\SimpleRouter\SimpleRouter;
 
 fileController::dieWhenFileMissing();
 
-require fileController::getVersionFilePath();
 require fileController::getConfigurationPath();
 
 

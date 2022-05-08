@@ -7,7 +7,7 @@ define('BASE_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 class fileController
 {
     protected static string $path_config = BASE_PATH . '../../config/config.php';
-    protected static string $path_version = BASE_PATH . '../../config/version.php';
+    protected static string $path_version = BASE_PATH . '../../storage/version.json';
     protected static string $path_message = BASE_PATH . '../../config/messages.json';
 
     public static function dieWhenFileMissing()
@@ -42,11 +42,18 @@ $config = array(
             include BASE_PATH . '../../resource/view/setup/small-header.php';
             include BASE_PATH . '../../resource/view/setup/setup.php';
             include BASE_PATH . '../../resource/view/footer.php';
-            die("");
+            die();
         }
 
         if (!file_exists(self::$path_version)) {
-            die('<h1><span style="color: #FF0000">Ein Fehler ist aufgetreten.</span></h1><h3>Die Datei "/config/version.php" konnte nicht gefunden werden</h3><h3>Führe das Setup mit "wisetup" im Master erneut aus!</h3>');
+            $myfile = fopen("../storage/version.json", "w") or die("Unable to open file!");
+            $txt = '{
+  "version": 1.0,
+  "inherit": true
+}';
+            fwrite($myfile, $txt);
+            fclose($myfile);
+            die();
         }
 
         if (!file_exists(self::$path_message)) {
