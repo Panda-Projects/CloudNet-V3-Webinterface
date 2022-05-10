@@ -10,7 +10,6 @@
 - Webserver oder Webspace
   - PHP 8
   - PHP Curl
-  - Apache2 Mods: rewrite
 
 ## Download
 
@@ -26,37 +25,31 @@ Das Module kannst du hier Herrunterladen ``https://f64.workupload.com/download/3
 
 Info: Das Webinterface funktioniert auch auf einen externen Server/Webspace!    
 
-### Webserver Configuration
+### Installation und Webserver Konfiguration
 
 #### Apache2
 
-1. Gehe zu /etc/apache2/sites-available
-2. Erstelle eine Datei mit der Endung .conf
-   (Beispiel: webinterface.conf)
-3. Füge das folgende ein und füge deine Daten ein
-
+1. Um Apche2 zu installieren benutzen Sie den folgenden Kommand:
+```apt install apache2```
+2. Danache benutzen Sie den Kommand um eine Apache2 config zu erstellen
+```nano /etc/apache2/sites-available/webinterface.conf```
+3. Danache kopieren Sie den folgenden Text
+```
         <VirtualHost *:80>
-            ServerName webinterface.domain.com
+            ServerName webinterface.example.com
             DocumentRoot "/var/www/webinterface/public"
-
             <Directory /var/www/webinterface/public>
                     AllowOverride All
             </Directory>
-
-
         </VirtualHost>
+```
+4. Verlassen Sie die Anwendung mit ``STRG+X`` und dann mit ``y`` und ``RETURN`` speichern
+5. Atkivieren Sie die Seite nun mit den folgendem Befehl
+```a2ensite webinterface.conf```
+6. Starten Sie Apache2 neu
+```service apache2 restart```
 
-4. Aktiviere die Seite mit
 
-        a2ensite webinterface.conf
-
-5. Starte Apache2 neu
-
-        service apache2 restart
-
-6. Sollte der Kommand nicht funktionieren, führe "a2enmod rewrite" aus
-
-7. Installier ein SSL-Zertifikat mit https://certbot.eff.org/
 
 ### Installation von Composer
 #### Debian 11
@@ -73,21 +66,6 @@ Info: Das Webinterface funktioniert auch auf einen externen Server/Webspace!
 
 - via Discord: https://discord.gg/rHD3CFB8x4
 - via E-Mail: [info@panda-studios.eu](mailto:info@panda-studios.eu)
-
-## License
-```
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
 
 <a href="https://github.com/Panda-Projects/CloudNet-V3-Webinterface/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Panda-Projects/CloudNet-V3-Webinterface" alt="Contributors"/>
