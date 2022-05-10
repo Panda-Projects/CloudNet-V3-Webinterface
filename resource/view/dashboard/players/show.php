@@ -61,7 +61,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                         <form method="post">
                                             <input name="action" value="deleteGroup" type="hidden">
                                             <input name="groupName" value="<?= $group["group"] ?>" type="hidden">
-                                            <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                            <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
                                             <button type="submit"
                                                     class="font-medium right-0 text-blue-600 dark:text-blue-$groups hover:underline">
                                                 <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
@@ -109,7 +109,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                         <form method="post">
                                             <input name="action" value="deletePermission" type="hidden">
                                             <input name="permission" value="<?= $permission["name"] ?>" type="hidden">
-                                            <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                            <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
                                             <button type="submit"
                                                     class="font-medium right-0 text-blue-600 dark:text-blue-$groups hover:underline">
                                                 <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                             </div>
                             <form method="post">
                                 <input name="action" value="addGroup" type="hidden">
-                                <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                 <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                     <div class="w-full flex-1 mx-2">
@@ -226,7 +226,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                             </div>
                             <form method="post">
                                 <input name="action" value="addPermission" type="hidden">
-                                <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                 <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                     <div class="w-full flex-1 mx-2">

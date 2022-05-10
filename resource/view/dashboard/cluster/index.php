@@ -51,7 +51,7 @@
                                     <form method="post">
                                         <input name="action" value="stopNode" type="hidden">
                                         <input name="node_id" value="<?= $node['node']['uniqueId']; ?>" type="hidden">
-                                        <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                        <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                         <button type="submit"
                                                 class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
@@ -63,7 +63,7 @@
                                             <input name="action" value="deleteNode" type="hidden">
                                             <input name="node_id" value="<?= $node['node']['uniqueId']; ?>"
                                                    type="hidden">
-                                            <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                            <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                             <button type="submit"
                                                     class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
@@ -93,7 +93,7 @@
                             </div>
                             <form method="post">
                                 <input name="action" value="createNode" type="hidden">
-                                <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                 <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                     <div class="w-full flex-1 mx-2">

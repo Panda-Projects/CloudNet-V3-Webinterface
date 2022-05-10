@@ -1,6 +1,6 @@
-<urlHelper class="w-full flex-grow p-6">
+<main class="w-full flex-grow p-6">
     <div class="py-3">
-        <urlHelper class="h-full overflow-y-auto">
+        <main class="h-full overflow-y-auto">
             <div class="container mx-auto grid">
 
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
@@ -87,17 +87,17 @@
                     <!-- Tasks end -->
                 </div>
             </div>
-        </urlHelper>
+        </main>
     </div>
     <div class="py-3">
-        <urlHelper class="h-full overflow-y-auto">
+        <main class="h-full overflow-y-auto">
             <div class="container mx-auto grid">
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-1">
                     <!-- Create Task -->
                     <div class="w-full">
                         <form method="post">
                             <input name="action" value="createTask" type="hidden">
-                            <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                            <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
                             <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                                 <div class="top mb-2 flex">
                                     <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Create Task</h4>
@@ -199,7 +199,7 @@
                                         <label class="inline-flex items-center mt-3">
                                             <input type="checkbox" name="urlHelpertenance" class="form-checkbox h-5 w-5"
                                                    checked><span
-                                                    class="ml-2 dark:text-white text-gray-900">urlHelpertenance</span>
+                                                    class="ml-2 dark:text-white text-gray-900">Maintenance</span>
                                         </label>
                                     </div>
                                 </div>
@@ -212,6 +212,6 @@
                     </div>
                 </div>
             </div>
-        </urlHelper>
+        </main>
     </div>
-</urlHelper>
+</main>
