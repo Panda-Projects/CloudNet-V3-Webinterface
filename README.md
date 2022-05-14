@@ -13,7 +13,7 @@
 
 ## Download
 
-Das Module kannst du hier Herrunterladen ``https://f64.workupload.com/download/3dV5dnADZ4x``
+Das Module kannst du hier Herrunterladen ``https://workupload.com/file/drwT95UzUXw``
 
 ## Installation
 
