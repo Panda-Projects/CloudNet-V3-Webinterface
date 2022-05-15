@@ -8,8 +8,13 @@ use Pecee\SimpleRouter\SimpleRouter;
 $urlhelper = new urlHelper($config);
 
 if (isset($_SESSION['cn3-wi-access_token'])) {
+
+
     SimpleRouter::group([], function () {
-        SimpleRouter::get('/', function () {
+        require '../app/core/Updater.php';
+        $update = new Updater();
+
+        SimpleRouter::get('/', function () use ($update) {
             include "../resource/view/header.php";
             include "../resource/view/action-modal.php";
             include "../resource/view/dashboard/dashboard.php";
@@ -27,12 +32,19 @@ if (isset($_SESSION['cn3-wi-access_token'])) {
                 include "../resource/view/dashboard/modules/index.php";
                 include "../resource/view/footer.php";
             });
+
+            SimpleRouter::get('/syncproxy', function () {
+                include "../resource/view/header.php";
+                include "../resource/view/action-modal.php";
+                include "../resource/view/dashboard/modules/syncproxy.php";
+                include "../resource/view/footer.php";
+            });
         });
 
         SimpleRouter::group(['prefix' => '/groups'], function () {
             SimpleRouter::form('/', function () {
                 if (isset($_POST['action'])) {
-                    if (!main::validCSRF()) {
+                    if (!urlHelper::validCSRF()) {
                         header('Location: ' . urlHelper::get() . "/cluster?action&success=false&message=csrfFailed");
                         die();
                     }
@@ -46,6 +58,12 @@ if (isset($_SESSION['cn3-wi-access_token'])) {
                 include "../resource/view/action-modal.php";
                 include "../resource/view/dashboard/groups/index.php";
                 include "../resource/view/footer.php";
+            });
+
+            SimpleRouter::get('/{name}/delete', function ($task_name) {
+                urlHelper::buildDefaultRequest("groups/" . strtolower($task_name), "DELETE", array(), array());
+                header('Location: ' . urlHelper::get() . "/groups?action&success=true&message=groupDelete");
+                die();
             });
         });
 
@@ -80,7 +98,7 @@ if (isset($_SESSION['cn3-wi-access_token'])) {
                 if ($action == LOGIN_RESULT_SUCCESS) {
                     header('Location: ' . urlHelper::get());
                 } else {
-                    header('Location: ' . urlHelper::get() . "/login?action&success=false&message=loginFailed");
+                    header('Location: ' . urlHelper::get() . "?action&success=false&message=loginFailed");
                 }
                 die();
             }

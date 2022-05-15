@@ -39,14 +39,10 @@ $groups = urlHelper::buildDefaultRequest("groups", "GET");
                             </div>
                             <div class="flex justify-center mt-4 space-x-3 text-sm text-white">
                                 <div class="flex items-center">
-                                    <button type="button"
-                                            class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                        Edit
-                                    </button>
-                                    <button type="button"
+                                    <a href="<?= urlHelper::get() ?>/groups/<?= $group["name"] ?>/delete" type="button"
                                             class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
                                         Delete
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

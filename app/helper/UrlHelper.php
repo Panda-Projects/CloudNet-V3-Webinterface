@@ -48,7 +48,7 @@ class urlHelper
 
     public static function validCSRF(): bool
     {
-        return isset($_POST['csrf']) ?? false and $_POST['csrf'] == $_SESSION['csrf_token'];
+        return isset($_POST['csrf']) ?? false and $_POST['csrf'] == $_SESSION['csrf'];
     }
 
     public static function buildDefaultRequest($url, $method = "GET", $params = array(), $debug = false): mixed
@@ -74,7 +74,10 @@ class urlHelper
         ));
 
         $response = curl_exec($curl);
+        $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
+
+        if($http_code === 302) echo '<script>window.location.href = "' . self::get() . '/logout"</script>';
 
         if ($response === FALSE) {
             return array("success" => "false");

@@ -34,9 +34,9 @@ foreach ($nodes as $node) {
 }
 ?>
 
-<urlHelper class="w-full flex-grow p-6">
+<main class="w-full flex-grow p-6">
     <div class="py-1">
-        <urlHelper class="h-full overflow-y-auto">
+        <main class="h-full overflow-y-auto">
             <div class="container mx-auto grid">
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                     <!--Users-->
@@ -83,11 +83,11 @@ foreach ($nodes as $node) {
                     </div>
                 </div>
             </div>
-        </urlHelper>
+        </main>
     </div>
 
     <div class="py-3">
-        <urlHelper class="h-full overflow-y-auto">
+        <main class="h-full overflow-y-auto">
             <div class="container mx-auto grid">
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
                     <!-- Ram Usage -->
@@ -114,11 +114,11 @@ foreach ($nodes as $node) {
                     </div>
                 </div>
             </div>
-        </urlHelper>
+        </main>
     </div>
 
     <div class="py-3">
-        <urlHelper class="h-full overflow-y-auto">
+        <main class="h-full overflow-y-auto">
             <div class="container mx-auto grid">
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
                     <!-- Stats -->
@@ -151,25 +151,40 @@ foreach ($nodes as $node) {
                             </div>
                         </div>
                     </div>
+                    <?php if ($update->isNewVersionAvailable()) {
+                    if ($update->wantsForceUpdate()) {
+                        $update->installFiles();
+                        $update->updateVersion();
+                    }
+                    ?>
+                    <div class="min-w-0 p-4 text-white bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-xs">
+                        <h4 class="mb-4 font-bold">Update available!</h4>
+                        <p>
+                            Currently you are using an outdated CloudNet Webinterface
+                            version <?= $update->getCurrentVersion() ?>!
+                            The latest version is the <?= $update->getRemoteVersion() ?>
+                        </p>
+                    </div>
                 </div>
+                <?php } ?>
             </div>
-        </urlHelper>
+        </main>
     </div>
-</urlHelper>
+</main>
 <?php
 
 $cpuarraydata = "";
 $cpuarrayvalue = "";
 foreach ($rrdata["cpu"] as $cpu) {
-    $cpuarraydata = $cpuarraydata . "'" .date("h:i", (intval($cpu["time"]) / 1000)) . "',";
-    $cpuarrayvalue = $cpuarrayvalue .  intval($cpu["cpu"]) . ",";
+    $cpuarraydata = $cpuarraydata . "'" . date("h:i", (intval($cpu["time"]) / 1000)) . "',";
+    $cpuarrayvalue = $cpuarrayvalue . intval($cpu["cpu"]) . ",";
 }
 
 $memoryarraydata = "";
 $memoryarrayvalue = "";
 foreach ($rrdata["memory"] as $memory) {
-    $memoryarraydata = $memoryarraydata . "'" .date("h:i", (intval($memory["time"]) / 1000)) . "',";
-    $memoryarrayvalue = $memoryarrayvalue .  $memory["memory"] . ",";
+    $memoryarraydata = $memoryarraydata . "'" . date("h:i", (intval($memory["time"]) / 1000)) . "',";
+    $memoryarrayvalue = $memoryarrayvalue . $memory["memory"] . ",";
 }
 ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

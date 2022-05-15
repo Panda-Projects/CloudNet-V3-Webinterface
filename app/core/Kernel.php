@@ -8,8 +8,8 @@ fileController::dieWhenFileMissing();
 require fileController::getConfigurationPath();
 
 
-if (!isset($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = uniqid();
+if (!isset($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = uniqid();
 }
 
 include_once __DIR__ . '/../../routes/web.php';

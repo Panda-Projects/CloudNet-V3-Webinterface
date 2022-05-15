@@ -11,7 +11,7 @@ $players = urlHelper::buildDefaultRequest("players")
             <div class="container mx-auto grid">
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                     <?php foreach ($players as $player) { ?>
-                        <a href="<?= urlHelper::get() . "/players/".$player["uuid"] ?>">
+                        <a href="<?= urlHelper::get() . "/players/" . $player["uuid"] ?>">
                             <div class="min-w-0 p-5 dark:bg-gray-800 bg-white rounded-lg shadow-lg">
                                 <div class="hero container max-w-screen-lg mx-auto pb-5">
                                     <img
@@ -24,9 +24,20 @@ $players = urlHelper::buildDefaultRequest("players")
                                     <p class="flex-1 dark:text-white text-gray-900 text-center p-2"><?php
 
                                         foreach ($player["groups"] as $group) {
-                                            echo '<span class="text-sm text-center text-white h-6 w-16 bg-gray-500 rounded-full py-1 px-2">' . $group["group"] . '</span>';
+                                            echo '<span class="text-sm text-center text-white mx-1 h-6 w-16 bg-blue-500 rounded-full py-1 px-2">' . $group["group"] . '</span>';
                                         }
                                         ?></p>
+                                </div>
+                                <div class="flex">
+                                    <p class="flex-1 dark:text-white text-gray-900 text-center p-2"><?php
+                                        if ($player["status"] === "Offline") {
+                                            echo '<span class="text-sm text-center mx-1 text-white h-6 w-16 bg-gray-500 rounded-full py-1 px-2">Offline</span>';
+                                        } else {
+                                            echo '<span class="text-sm text-center mx-1 text-white h-6 w-16 bg-green-500 rounded-full py-1 px-2">Online</span>';
+                                            echo '<span class="text-sm text-center mx-1 text-white h-6 w-16 bg-green-500 rounded-full py-1 px-2">' . $player["server"] . '</span>';
+                                        }
+                                        ?>
+                                    </p>
                                 </div>
                                 <div class="flex">
                                     <span class="text-gray-400">•</span>

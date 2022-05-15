@@ -9,11 +9,19 @@ use App\Helper\urlHelper;
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="<?= urlHelper::get(); ?>/assets/styles.css" rel="stylesheet">
+    <title><?= urlHelper::getConfig()["name"] ?></title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script>
+        if (localStorage.theme == 'dark') {
+            document.querySelector('html').classList.add('dark')
+        } else {
+            document.querySelector('html').classList.remove('dark')
+        }
+    </script>
 </head>
 
 <body class="dark:bg-gray-900 bg-gray-100">
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <div class="md:flex flex-col md:flex-row md:min-h-screen md:mx-auto w-full">
     <div @click.away="open = false"
          class="flex flex-col w-full md:w-64 dark:text-gray-700 dark:bg-gray-800 text-gray-900 bg-white flex-shrink-0"

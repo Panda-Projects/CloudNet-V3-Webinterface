@@ -1,10 +1,15 @@
+<?php
+
+use App\Helper\urlHelper;
+
+?>
 <div class="w-full h-screen flex items-center justify-center">
     <form class="w-full md:w-1/3 bg-white rounded-lg" method="post">
         <input name="action" value="login" type="hidden">
-        <input name="csrf" value="<?= $_SESSION['csrf_token'] ?>" type="hidden">
+        <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
         <div class="flex font-bold justify-center mt-6">
             <img class="h-20 w-20"
-                 src="<?= \App\Helper\urlHelper::get(); ?>/assets/logo.svg" alt="logo">
+                 src="<?= urlHelper::get(); ?>/assets/logo.svg" alt="logo">
         </div>
         <h2 class="text-3xl text-center text-gray-700 mb-4">CloudNet Webinterface</h2>
         <div class="px-12 pb-10">

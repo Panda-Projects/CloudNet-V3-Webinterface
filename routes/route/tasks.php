@@ -1,5 +1,6 @@
 <?php
 
+use App\Helper\jsonObjectCreator;
 use App\Helper\urlHelper;
 use Pecee\SimpleRouter\SimpleRouter;
 
@@ -23,7 +24,7 @@ SimpleRouter::group(['prefix' => '/tasks'], function () {
                 $maintenance = $_POST['maintenance'];
 
                 if (isset($name, $ram, $env, $node, $startPort)) {
-                    $taskData = webinterface\jsonObjectCreator::createServiceTaskObject(
+                    $taskData = jsonObjectCreator::createServiceTaskObject(
                         $name, $ram, $env,
                         $node === "all" ? array() : array($node),
                         $startPort, isset($static), isset($autoDeleteOnStop), isset($maintenance)
@@ -42,7 +43,7 @@ SimpleRouter::group(['prefix' => '/tasks'], function () {
         include "../resource/view/footer.php";
     });
 
-    SimpleRouter::get('/{name}', function ($task_name) {
+    SimpleRouter::form('/{name}', function ($task_name) {
         $task = urlHelper::buildDefaultRequest("tasks/" . strtolower($task_name), "GET", array(), array());
         if (empty($task)) {
             header('Location: ' . urlHelper::get() . "/tasks?action&success=false&message=notFoundTask");
@@ -89,13 +90,13 @@ SimpleRouter::group(['prefix' => '/tasks'], function () {
         include "../resource/view/footer.php";
     });
 
-    SimpleRouter::delete('/{name}/delete', function ($task_name) {
+    SimpleRouter::get('/{name}/delete', function ($task_name) {
         $task = urlHelper::buildDefaultRequest("tasks/" . strtolower($task_name), "DELETE", array(), array());
         header('Location: ' . urlHelper::get() . "/tasks?action&success=true&message=taskDelete");
         die();
     });
 
-    SimpleRouter::get('/{name}/edit', function ($task_name) {
+    SimpleRouter::form('/{name}/edit', function ($task_name) {
         $task = urlHelper::buildDefaultRequest("tasks/" . strtolower($task_name), "GET", array(), array());
         if (empty($task)) {
             header('Location: ' . urlHelper::get() . "/tasks?action&success=false&message=notFound");
@@ -129,7 +130,7 @@ SimpleRouter::group(['prefix' => '/tasks'], function () {
                 $maintenance = $_POST['maintenance'];
 
                 if (isset($name, $ram, $env, $node, $startPort)) {
-                    $taskData = webinterface\jsonObjectCreator::createServiceTaskObject(
+                    $taskData = jsonObjectCreator::createServiceTaskObject(
                         $name, $ram, $env, $node,
                         $startPort, isset($static), isset($autoDeleteOnStop), isset($maintenance), $group
                     );

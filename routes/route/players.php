@@ -10,7 +10,7 @@ SimpleRouter::group(['prefix' => '/players'], function () {
         include "../resource/view/footer.php";
     });
 
-    SimpleRouter::get('/{player}', function ($uuid) {
+    SimpleRouter::form('/{player}', function ($uuid) {
         if (isset($_POST["action"])) {
             if (!urlHelper::validCSRF()) {
                 header('Location: ' . urlHelper::get() . "/players/" . $uuid . "?action&success=false&message=csrfFailed");

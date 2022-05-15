@@ -1,13 +1,5 @@
 </div>
 </div>
-</body>
-<script>
-    if (localStorage.theme == 'dark') {
-        document.querySelector('html').classList.add('dark')
-    } else {
-        document.querySelector('html').classList.remove('dark')
-    }
-</script>
 <script>
     if (document.getElementById('switchTheme') != null) {
         document.getElementById('switchTheme').addEventListener('click', function () {
@@ -22,4 +14,5 @@
         });
     }
 </script>
+</body>
 </html>

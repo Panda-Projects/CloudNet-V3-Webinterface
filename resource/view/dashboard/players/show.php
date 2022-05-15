@@ -21,6 +21,17 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                         </div>
                         <h4 class="mb-4 font-semibold text-blue-500 text-center"><?= $player["name"] ?></h4>
                         <div class="flex">
+                            <p class="flex-1 dark:text-white text-gray-900 text-center p-2"><?php
+                                if ($player["status"] === "Offline") {
+                                    echo '<span class="text-sm text-center mx-1 text-white h-6 w-16 bg-gray-500 rounded-full py-1 px-2">Offline</span>';
+                                } else {
+                                    echo '<span class="text-sm text-center mx-1 text-white h-6 w-16 bg-green-500 rounded-full py-1 px-2">Online</span>';
+                                    echo '<span class="text-sm text-center mx-1 text-white h-6 w-16 bg-green-500 rounded-full py-1 px-2">' . $player["server"] . '</span>';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex">
                             <span class="text-gray-400">•</span>
                             <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Letzter
                                 Login: <?= date("H:i:s d.m.y", intval($player["lastlogin"]) / 1000) ?></p>
@@ -61,7 +72,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                         <form method="post">
                                             <input name="action" value="deleteGroup" type="hidden">
                                             <input name="groupName" value="<?= $group["group"] ?>" type="hidden">
-                                            <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                            <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
                                             <button type="submit"
                                                     class="font-medium right-0 text-blue-600 dark:text-blue-$groups hover:underline">
                                                 <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
@@ -109,7 +120,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                         <form method="post">
                                             <input name="action" value="deletePermission" type="hidden">
                                             <input name="permission" value="<?= $permission["name"] ?>" type="hidden">
-                                            <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                            <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
                                             <button type="submit"
                                                     class="font-medium right-0 text-blue-600 dark:text-blue-$groups hover:underline">
                                                 <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
@@ -144,7 +155,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                             </div>
                             <form method="post">
                                 <input name="action" value="addGroup" type="hidden">
-                                <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                 <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                     <div class="w-full flex-1 mx-2">
@@ -226,7 +237,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                             </div>
                             <form method="post">
                                 <input name="action" value="addPermission" type="hidden">
-                                <input name="csrf" value="<?= $_SESSION['cn3-wi-csrf'] ?>" type="hidden">
+                                <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
 
                                 <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                     <div class="w-full flex-1 mx-2">
