@@ -67,6 +67,13 @@ Info: Das Webinterface funktioniert auch auf einen externen Server/Webspace!
 - via Discord: https://discord.gg/rHD3CFB8x4
 - via E-Mail: [info@panda-studios.eu](mailto:info@panda-studios.eu)
 
+## Spoiler
+
+![image](https://user-images.githubusercontent.com/59180449/168481166-df09242b-080f-4132-aee8-0773919f1b23.png)
+![image](https://user-images.githubusercontent.com/59180449/168481309-ae5a3b12-fa40-4493-b746-876cff91d207.png)
+![image](https://user-images.githubusercontent.com/59180449/168481414-d8157cba-6f6a-47d9-8662-1bce642a5655.png)
+
+
 <a href="https://github.com/Panda-Projects/CloudNet-V3-Webinterface/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Panda-Projects/CloudNet-V3-Webinterface" alt="Contributors"/>
 </a>
