@@ -13,7 +13,7 @@
 
 ## Download
 
-Das Module kannst du hier Herrunterladen ``https://files.panda-studios.eu/1/0.2/cloudnet-rest.jar``
+Das Module kannst du hier Herrunterladen ``https://files.panda-studios.eu/2/0.2/cloudnet-rest.jar``
 
 ## Installation
 
