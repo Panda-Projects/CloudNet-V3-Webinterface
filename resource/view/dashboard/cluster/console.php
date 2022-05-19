@@ -7,7 +7,7 @@
         websocket.onerror = () => websocket.close()
 
         websocket.onmessage = (event) => showMessage('<div class="dark:text-gray-200 text-gray-800 text-sm">' + event.data + '</div>')
-        websocket.onclose = () => showMessage('<div class="dark:text-gray-200 text-gray-800 text-sm">Connection closed by server</div>')
+        websocket.onclose = () => showMessage('<div class="dark:text-gray-200 text-gray-800 text-sm"><?= _CONSOLE_CLOSE_SERVER_CONNECTION ?></div>')
 
         setInterval(() => websocket.send(''), 15_000)
 
@@ -45,7 +45,7 @@
                     <div class="w-full">
                         <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                             <div class="top mb-2 flex">
-                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Send command</h4>
+                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _CONSOLE_SEND_COMMAND ?></h4>
                             </div>
                             <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                 <div class="w-full flex-1 mx-2">
@@ -57,7 +57,7 @@
                             <button type="button"
                                     id="execute-command"
                                     class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                Execute
+                                <?= _SUBMIT ?>
                             </button>
                         </div>
                     </div>

@@ -18,15 +18,15 @@ $groups = urlHelper::buildDefaultRequest("permissions")
                             </div>
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
-                                <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Erster
-                                    Erstellt: <?= date("H:i:s d.m.y", intval($group["createdTime"]) / 1000) ?></p>
+                                <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
+                                    <?= _CREATED ?>: <?= date("H:i:s d.m.y", intval($group["createdTime"]) / 1000) ?></p>
                             </div>
                             <div class="flex justify-center mt-4 space-x-3 text-sm text-white">
                                 <div class="flex items-center">
                                     <a href="/permissions/<?= $group['name']; ?>"
-                                       class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">Show</a>
+                                       class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline"><?= _SHOW ?></a>
                                     <a href="/permissions/<?= $group['name']; ?>/delete"
-                                       class="h-10 bg-red-500 text-white rounded-md px-4 py-2 m-2 hover:bg-red-700 focus:outline-none focus:shadow-outline">Delete</a>
+                                       class="h-10 bg-red-500 text-white rounded-md px-4 py-2 m-2 hover:bg-red-700 focus:outline-none focus:shadow-outline"><?= _DELETE ?></a>
                                 </div>
                             </div>
                         </div>

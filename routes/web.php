@@ -82,6 +82,13 @@ if (isset($_SESSION['cn3-wi-access_token'])) {
             header('Location: ' . urlHelper::get());
             die();
         });
+
+        SimpleRouter::group(['prefix' => '/lang'], function () {
+            SimpleRouter::get('/{name}', function ($name) {
+                $_SESSION["lang"] = $name;
+                header('Location: ' . urlHelper::get());
+            });
+        });
     });
 
 } else {

@@ -53,12 +53,12 @@ use App\Helper\urlHelper;
         </div>
 
         <?php
-        $path = strtolower(explode("/",$_SERVER['REQUEST_URI'])[1]);
+        $path = strtolower(explode("/", $_SERVER['REQUEST_URI'])[1]);
         ?>
 
         <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
             <a class="<?= $path == "" ? "block px-4 py-2 mt-2 text-sm font-semibold dark:text-white dark:bg-gray-900 text-gray-900 bg-gray-100 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" :
-            "block px-4 py-2 mt-2 text-sm font-semibold text-gray-400 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" ?>"
+                "block px-4 py-2 mt-2 text-sm font-semibold text-gray-400 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" ?>"
                href="<?= urlHelper::get(); ?>">Dashboard</a>
             <a class="<?= $path == "cluster" ? "block px-4 py-2 mt-2 text-sm font-semibold dark:text-white dark:bg-gray-900 text-gray-900 bg-gray-100 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" :
                 "block px-4 py-2 mt-2 text-sm font-semibold text-gray-400 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" ?>"
@@ -115,8 +115,44 @@ use App\Helper\urlHelper;
                     </button>
                 </li>
                 <li class="relative">
-                    <img src="/assets/icons/status.svg"/>
-                    <!--<span aria-hidden="true" class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full"></span>-->
+                    <div x-data="{ dropdownOpen: false }">
+                        <button @click="dropdownOpen = !dropdownOpen"
+                                class=" block rounded-md p-2 focus:outline-none text-sm overflow-hidden focus:outline-none">
+                            <img
+                                    <?php
+                                    if($_SESSION["lang"] == "en") {
+                                        $countName = "gb";
+                                    } else {
+                                        $countName = $_SESSION["lang"];
+                                    }
+                                    ?>
+                                    src="https://flagcdn.com/<?= $countName ?>.svg"
+                                    width="30"
+                                    class="rounded"
+                                    alt="Germany">
+                        </button>
+                        <div x-show="dropdownOpen" @click="dropdownOpen = false"
+                             class="fixed inset-0 h-full w-full z-10"></div>
+                        <div x-show="dropdownOpen"
+                             class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                            <a href="<?= urlHelper::get() . '/lang/de'; ?>"
+                               class="block px-4 py-2 text-sm capitalize text-gray-800 hover:bg-indigo-500 hover:text-white">
+                                <img
+                                        src="https://flagcdn.com/de.svg"
+                                        width="30"
+                                        class="rounded inline"
+                                        alt="Germany"> Germany
+                            </a>
+                            <a href="<?= urlHelper::get() . '/lang/en'; ?>"
+                               class="block px-4 py-2 text-sm capitalize text-gray-800 hover:bg-indigo-500 hover:text-white">
+                                <img
+                                        src="https://flagcdn.com/gb.svg"
+                                        width="30"
+                                        class="rounded inline"
+                                        alt=""> English
+                            </a>
+                        </div>
+                    </div>
                 </li>
                 <li class="relative">
                     <div x-data="{ dropdownOpen: false }">

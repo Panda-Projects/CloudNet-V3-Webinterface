@@ -55,7 +55,7 @@ foreach ($nodes as $node) {
                             <img src="assets/icons/server.svg"/>
                         </div>
                         <div>
-                            <p class="mb-2 text-base font-medium text-gray-400">Service count</p>
+                            <p class="mb-2 text-base font-medium text-gray-400"><?= _SERVICE_COUNT ?></p>
                             <p class="text-xl font-semibold dark:text-white text-gray-900"><?= $services ?></p>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ foreach ($nodes as $node) {
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
                     <!-- Ram Usage -->
                     <div class="min-w-0 p-4 dark:bg-gray-800 bg-white rounded-lg shadow-lg">
-                        <h4 class="mb-4 font-semibold dark:text-white text-gray-900">Ram Usage</h4>
+                        <h4 class="mb-4 font-semibold dark:text-white text-gray-900"><?= _MEMORY_USAGE ?></h4>
                         <canvas id="ram" width="350" height="100"></canvas>
                         <div class="flex justify-center mt-4 space-x-3 text-sm dark:text-white text-gray-900">
                             <div class="flex items-center">
@@ -103,7 +103,7 @@ foreach ($nodes as $node) {
                     </div>
                     <!-- CPU Usage -->
                     <div class="min-w-0 p-4 dark:bg-gray-800 bg-white rounded-lg shadow-lg">
-                        <h4 class="mb-4 font-semibold dark:text-white text-gray-900">CPU Usage</h4>
+                        <h4 class="mb-4 font-semibold dark:text-white text-gray-900"><?= _CPU_USAGE ?></h4>
                         <canvas id="cpu" width="350" height="100"></canvas>
                         <div class="flex justify-center mt-4 space-x-3 text-sm dark:text-white text-gray-900">
                             <div class="flex items-center">

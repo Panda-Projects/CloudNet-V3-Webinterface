@@ -157,13 +157,13 @@ SimpleRouter::group(['prefix' => '/tasks'], function () {
 
         if (isset($_POST['action'])) {
             if (!urlHelper::validCSRF()) {
-                header('Location: ' . urlHelper::get() . "/tasks/" . $task_name . "?action&success=false&message=csrfFailed");
+                header('Location: ' . urlHelper::get() . "/tasks/" . $task_name . "/console?action&success=false&message=csrfFailed");
                 die();
             }
 
             if ($_POST['action'] == "sendCommand" and isset($_POST['command'])) {
-                $response = urlHelper::buildDefaultRequest("services/" . $_POST['service_id'] . "/stop", "GET");
-                header('Location: ' . urlHelper::get() . "/tasks/" . $task_name . "?action&success=true&message=stopService");
+                $response = urlHelper::buildDefaultRequest("services/" . $service_name . "/command","PUT", json_encode(array("command" => $_POST['command'])));
+                header('Location: ' . urlHelper::get() . "/tasks/" . $task_name . "/" . $service_name  . "/console?action&success=true&message=stopService");
                 die();
             }
         }

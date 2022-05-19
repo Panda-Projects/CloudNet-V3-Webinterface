@@ -26,19 +26,19 @@
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
                                 <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Memory
-                                    Usage: <?= $node['nodeInfoSnapshot']['usedMemory']; ?>
+                                    <?= _USAGE ?>: <?= $node['nodeInfoSnapshot']['usedMemory']; ?>
                                     MB/<?= $node['nodeInfoSnapshot']['maxMemory']; ?>MB<br></p>
                             </div>
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
                                 <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">CPU
-                                    Usage: <?= min(round($node['nodeInfoSnapshot']['processSnapshot']['cpuUsage'] * 100), 100); ?>
+                                    <?= _USAGE ?>: <?= min(round($node['nodeInfoSnapshot']['processSnapshot']['cpuUsage'] * 100), 100); ?>
                                     %<br></p>
                             </div>
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
                                 <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
-                                    Version: <?= $node['nodeInfoSnapshot']['version'] ?><br></p>
+                                    <?= _VERSION ?>: <?= $node['nodeInfoSnapshot']['version'] ?><br></p>
                             </div>
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
@@ -55,7 +55,7 @@
 
                                         <button type="submit"
                                                 class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                            Shutdown
+                                            <?= _SHUTDOWN ?>
                                         </button>
                                     </form>
                                     <?php if (count($nodes) > 1) { ?>

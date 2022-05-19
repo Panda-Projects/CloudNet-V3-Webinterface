@@ -27,12 +27,12 @@ $modules = urlHelper::buildDefaultRequest("modules")
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
                                 <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
-                                    Group: <?= $module["group"] ?></p>
+                                    <?= _GROUP ?>: <?= $module["group"] ?></p>
                             </div>
                             <div class="flex">
                                 <span class="text-gray-400">•</span>
                                 <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
-                                    Version: <?= $module["version"] ?></p>
+                                    <?= _VERSION ?>: <?= $module["version"] ?></p>
                             </div>
                         </div>
                         <?php

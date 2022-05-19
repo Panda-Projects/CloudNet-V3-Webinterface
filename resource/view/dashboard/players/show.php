@@ -33,13 +33,13 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                         </div>
                         <div class="flex">
                             <span class="text-gray-400">•</span>
-                            <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Letzter
-                                Login: <?= date("H:i:s d.m.y", intval($player["lastlogin"]) / 1000) ?></p>
+                            <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
+                                <?= _LAST_LOGIN ?>: <?= date("H:i:s d.m.y", intval($player["lastlogin"]) / 1000) ?></p>
                         </div>
                         <div class="flex">
                             <span class="text-gray-400">•</span>
-                            <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Erster
-                                Login: <?= date("H:i:s d.m.y", intval($player["firstlogin"]) / 1000) ?></p>
+                            <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
+                                <?= _FIRST_LOGIN ?>: <?= date("H:i:s d.m.y", intval($player["firstlogin"]) / 1000) ?></p>
                         </div>
                     </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -47,7 +47,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Group
+                                    <?= _GROUP ?>
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     To
@@ -151,7 +151,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                     <div class="w-full">
                         <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                             <div class="top mb-2 flex">
-                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Add Group</h4>
+                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _ADD_GROUP ?></h4>
                             </div>
                             <form method="post">
                                 <input name="action" value="addGroup" type="hidden">
@@ -193,7 +193,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                             </option>
                                             <option value="MINUTES"
                                                     class="text-sm font-mono subpixel-antialiased">
-                                                Minute
+                                                Minutes
                                             </option>
                                             <option value="HOURS"
                                                     class="text-sm font-mono subpixel-antialiased">
@@ -216,7 +216,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                 </div>
                                 <button type="submit"
                                         class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                    Add
+                                    <?= _ADD ?>
                                 </button>
                             </form>
                         </div>
@@ -233,7 +233,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                     <div class="w-full">
                         <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                             <div class="top mb-2 flex">
-                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Add Permission</h4>
+                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _ADD_PERMISSION ?></h4>
                             </div>
                             <form method="post">
                                 <input name="action" value="addPermission" type="hidden">
@@ -274,7 +274,7 @@ $player = urlHelper::buildDefaultRequest("players/" . $uuid)[0];
                                 </div>
                                 <button type="submit"
                                         class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                    Add
+                                    <?= _ADD ?>
                                 </button>
                             </form>
                         </div>

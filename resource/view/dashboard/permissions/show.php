@@ -18,7 +18,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                         <div class="flex">
                             <span class="text-gray-400">•</span>
                             <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
-                                Erstellt: <?= date("H:i:s d.m.y", intval($group["createdTime"]) / 1000) ?></p>
+                                <?= _CREATED ?>: <?= date("H:i:s d.m.y", intval($group["createdTime"]) / 1000) ?></p>
                         </div>
                         <div class="flex">
                             <span class="text-gray-400">•</span>
@@ -28,7 +28,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                         <div class="flex">
                             <span class="text-gray-400">•</span>
                             <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
-                                Gruppen: <?= count($group["groups"]) ?></p>
+                                <?= _GROUPS ?>: <?= count($group["groups"]) ?></p>
                         </div>
                     </div>
                     <div class="min-w-0 p-5 dark:bg-gray-800 bg-white rounded-lg shadow-lg">
@@ -131,7 +131,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                                 <label class="inline-flex items-center mt-3">
                                     <input type="checkbox" name="defaultGroup"
                                            class="form-checkbox h-5 w-5" <?php if ($group["defaultGroup"]) echo "checked"; ?>><span
-                                            class="ml-2 dark:text-white text-gray-900">Default Group</span>
+                                            class="ml-2 dark:text-white text-gray-900"><?= _DEFAULT_GROUP ?></span>
                                 </label>
                                 <button type="submit"
                                         class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
@@ -228,7 +228,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                     <div class="w-full">
                         <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                             <div class="top mb-2 flex">
-                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Add Permission</h4>
+                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _ADD_PERMISSION ?></h4>
                             </div>
                             <form method="post">
                                 <input name="action" value="addPermission" type="hidden">
@@ -242,7 +242,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                                 </div>
                                 <button type="submit"
                                         class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                    Create
+                                    <?= _CREATE ?>
                                 </button>
                             </form>
                         </div>
@@ -250,7 +250,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                     <div class="w-full">
                         <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                             <div class="top mb-2 flex">
-                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Add Group</h4>
+                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _ADD_GROUP ?></h4>
                             </div>
                             <form method="post">
                                 <input name="action" value="addPermission" type="hidden">
@@ -264,7 +264,7 @@ $group = urlHelper::buildDefaultRequest("permissions/" . $group_name);
                                 </div>
                                 <button type="submit"
                                         class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                    Create
+                                    <?= _CREATE ?>
                                 </button>
                             </form>
                         </div>

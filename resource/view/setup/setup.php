@@ -2,11 +2,11 @@
     <form class="w-full max-w-lg md:w-1/3 bg-white rounded-lg p-10" method="post">
         <input name="action" type="hidden" value="setup">
         <h2 class="text-3xl text-center text-gray-700 mb-4">CloudNet Webinterface - Setup</h2>
-        <h3 class="text-2xl text-center text-gray-700 mb-4">Website Settings</h3>
+        <h3 class="text-2xl text-center text-gray-700 mb-4">Website <?= _SETTINGS ?></h3>
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                    PROTOCOL
+                    <?= _PROTOCOL ?>
                 </label>
                 <div class="relative">
                     <select name="website_protocol"
@@ -24,7 +24,7 @@
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                    Domain or IP for website
+                    <?= _SETUP_DOMAIN_WEBSITE ?>
                 </label>
                 <input name="website_ip"
                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -34,26 +34,26 @@
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                    Path to website
+                    <?= _SETUP_PATH_WEBSITE ?>
                 </label>
                 <input name="website_path"
                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                       id="grid-first-name" type="text" placeholder="/cloudnet">
+                       id="grid-first-name" type="text" placeholder="/">
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                    Website Name
+                    <?= _SETUP_WEBSITE_NAME ?>
                 </label>
                 <input name="website_name"
                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                        id="grid-first-name" type="text" placeholder="CloudNet3 Webinterface" value="CloudNet3 Webinterface">
             </div>
         </div>
-        <h3 class="text-2xl text-center text-gray-700 mb-4">CloudNet Settings</h3>
+        <h3 class="text-2xl text-center text-gray-700 mb-4">CloudNet <?= _SETTINGS ?></h3>
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                    PROTOCOL
+                    <?= _PROTOCOL ?>
                 </label>
                 <div class="relative">
                     <select name="cloudnet_protocol"
@@ -71,7 +71,7 @@
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                    Domain or IP from CloudNet Server
+                    <?= _SETUP_DOMAIN_CLOUDNET ?>
                 </label>
                 <input name="cloudnet_ip"
                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -98,7 +98,7 @@
         </div>
         <br/>
         <button type="submit"
-                class="w-full py-2 rounded-full bg-green-600 text-gray-100  focus:outline-none">Finish
+                class="w-full py-2 rounded-full bg-green-600 text-gray-100  focus:outline-none"><?= _SUBMIT ?>
         </button>
     </form>
 </div>

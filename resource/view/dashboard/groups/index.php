@@ -41,7 +41,7 @@ $groups = urlHelper::buildDefaultRequest("groups", "GET");
                                 <div class="flex items-center">
                                     <a href="<?= urlHelper::get() ?>/groups/<?= $group["name"] ?>/delete" type="button"
                                             class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                        Delete
+                                        <?= _DELETE ?>
                                     </a>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ $groups = urlHelper::buildDefaultRequest("groups", "GET");
                     <div class="w-full">
                         <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                             <div class="top mb-2 flex">
-                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Create Group</h4>
+                                <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _CREATE_GROUP ?></h4>
                             </div>
                             <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                 <div class="w-full flex-1 mx-2">
@@ -82,7 +82,7 @@ $groups = urlHelper::buildDefaultRequest("groups", "GET");
                             </div>
                             <button type="button"
                                     class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                Create
+                                <?= _CREATE ?>
                             </button>
                         </div>
                     </div>

@@ -75,11 +75,11 @@
                             <div class="flex justify-center mt-4 space-x-3 text-sm text-white">
                                 <div class="flex items-center">
                                     <a href="/tasks/<?= $task['name']; ?>"
-                                       class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">Show</a>
+                                       class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline"><?= _SHOW ?></a>
                                     <a href="/tasks/<?= $task['name']; ?>/edit"
-                                       class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">Edit</a>
+                                       class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline"><?= _EDIT ?></a>
                                     <a href="/tasks/<?= $task['name']; ?>/delete"
-                                       class="h-10 bg-red-500 text-white rounded-md px-4 py-2 m-2 hover:bg-red-700 focus:outline-none focus:shadow-outline">Delete</a>
+                                       class="h-10 bg-red-500 text-white rounded-md px-4 py-2 m-2 hover:bg-red-700 focus:outline-none focus:shadow-outline"><?= _DELETE ?></a>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                             <input name="csrf" value="<?= $_SESSION['csrf'] ?>" type="hidden">
                             <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 dark:bg-gray-800 bg-white pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
                                 <div class="top mb-2 flex">
-                                    <h4 class="mb-2 font-semibold dark:text-white text-gray-900">Create Task</h4>
+                                    <h4 class="mb-2 font-semibold dark:text-white text-gray-900"><?= _CREATE_TASK ?></h4>
                                 </div>
                                 <div class="flex-1 flex flex-col md:flex-row text-sm font-mono subpixel-antialiased">
                                     <div class="w-full flex-1 mx-2">
@@ -205,7 +205,7 @@
                                 </div>
                                 <button type="submit"
                                         class="h-10 bg-blue-500 text-white rounded-md px-4 py-2 m-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline">
-                                    Create
+                                    <?= _CREATE ?>
                                 </button>
                             </div>
                         </form>

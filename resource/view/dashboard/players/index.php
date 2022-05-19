@@ -41,13 +41,13 @@ $players = urlHelper::buildDefaultRequest("players")
                                 </div>
                                 <div class="flex">
                                     <span class="text-gray-400">•</span>
-                                    <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Letzter
-                                        Login: <?= date("H:i:s d.m.y", intval($player["lastlogin"]) / 1000) ?></p>
+                                    <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
+                                        <?= _LAST_LOGIN ?>: <?= date("H:i:s d.m.y", intval($player["lastlogin"]) / 1000) ?></p>
                                 </div>
                                 <div class="flex">
                                     <span class="text-gray-400">•</span>
-                                    <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">Erster
-                                        Login: <?= date("H:i:s d.m.y", intval($player["firstlogin"]) / 1000) ?></p>
+                                    <p class="flex-1 dark:text-white text-gray-900 items-center pl-2">
+                                        <?= _FIRST_LOGIN ?>: <?= date("H:i:s d.m.y", intval($player["firstlogin"]) / 1000) ?></p>
                                 </div>
                             </div>
                         </a>
