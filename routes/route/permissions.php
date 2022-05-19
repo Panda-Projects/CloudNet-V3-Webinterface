@@ -1,5 +1,6 @@
 <?php
 
+use App\Helper\urlHelper;
 use Pecee\SimpleRouter\SimpleRouter;
 
 SimpleRouter::group(['prefix' => '/permissions'], function () {
