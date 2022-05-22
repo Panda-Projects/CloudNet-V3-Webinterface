@@ -6,15 +6,15 @@ use Pecee\Http\Request;
 use Pecee\SimpleRouter\Exceptions\NotFoundHttpException;
 use Pecee\SimpleRouter\SimpleRouter;
 
-fileController::dieWhenFileMissing();
-
-require fileController::getConfigurationPath();
-
 if(isset($_SESSION["lang"])) {
     require __DIR__ . '../../../lang/lang_' . $_SESSION["lang"] . '.php';
 } else {
     require __DIR__ . '../../../lang/lang_en.php';
 }
+
+fileController::dieWhenFileMissing();
+
+require fileController::getConfigurationPath();
 
 SimpleRouter::error(function(Request $request, \Exception $exception) {
 
