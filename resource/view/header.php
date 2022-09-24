@@ -120,9 +120,14 @@ use App\Helper\urlHelper;
                                 class=" block rounded-md p-2 focus:outline-none text-sm overflow-hidden focus:outline-none">
                             <img
                                     <?php
-                                    if($_SESSION["lang"] == "en") {
-                                        $countName = "gb";
+                                    if(isset($_SESSION["lang"])) {
+                                        if ($_SESSION["lang"] == "en") {
+                                            $countName = "gb";
+                                        } else {
+                                            $countName = $_SESSION["lang"];
+                                        }
                                     } else {
+                                        $_SESSION["lang"] = "de";
                                         $countName = $_SESSION["lang"];
                                     }
                                     ?>
@@ -169,13 +174,12 @@ use App\Helper\urlHelper;
                              class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
                             <?php
                             $name = "";
-                            $json = file_get_contents('https://api.mojang.com/user/profiles/' . $_SESSION["cn3-wi-user"] . '/names');
+                            $json = file_get_contents('https://sessionserver.mojang.com/session/minecraft/profile/' . $_SESSION["cn3-wi-user"]);
                             if (!empty($json)) {
                                 $data = json_decode($json, true);
-                                if (!empty($data) and is_array($data)) {
-                                    $last = array_pop($data);
-                                    if (is_array($last) and isset($last['name'])) {
-                                        $name = $last['name'];
+                                if (!empty($data)) {
+                                    if (isset($data['name'])) {
+                                        $name = $data['name'];
                                     }
                                 }
                             }
